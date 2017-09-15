@@ -1,0 +1,15 @@
+name: "signalr2"
+version: 1.0.0-alpha1-final
+description: "Incredibly simple real-time web for ASP.NET Core 2.0"
+
+homepage: https://github.com/rinukkusu/signalr2-dart
+author: 'rinukkusu <rinukkusu@auen.land>'
+
+dependencies: 
+  js: ^0.6.1
+  func: ^1.0.0
+
+dev_dependencies: 
+
+environment: 
+  sdk: ">=1.19.0"
