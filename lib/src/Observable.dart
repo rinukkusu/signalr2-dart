@@ -1,11 +1,12 @@
 @JS()
 library Observable;
 
+import 'dart:async';
 import "package:js/js.dart";
 import "package:func/func.dart";
 
 @anonymous
-@JS()
+@JS("signalR.Observer")
 abstract class Observer<T> {
   external bool get closed;
   external set closed(bool v);
@@ -22,21 +23,35 @@ abstract class Observer<T> {
       VoidFunc0 complete});
 }
 
-@anonymous
-@JS()
-abstract class Observable<T> {
-  external void subscribe(Observer<T> observer);
+@JS("signalR.Subscription")
+class Subscription<T> {
+  // @Ignore
+  Subscription.fakeConstructor$();
+  external get subject;
+  external set subject(v);
+  external get observer;
+  external set observer(v);
+  external factory Subscription(Subject<T> subject, Observer<T> observer);
+  external void dispose();
 }
 
-@JS()
+@anonymous
+@JS("signalR.Observable")
+abstract class Observable<T> {
+  external Subscription<T> subscribe(Observer<T> observer);
+}
+
+@JS("signalR.Subject")
 class Subject<T> implements Observable<T> {
   // @Ignore
   Subject.fakeConstructor$();
   external List<Observer<T>> get observers;
   external set observers(List<Observer<T>> v);
-  external factory Subject();
+  external Func0<Future<Null>> get cancelCallback;
+  external set cancelCallback(Func0<Future<Null>> v);
+  external factory Subject(Future<Null> cancelCallback());
   external void next(T item);
   external void error(dynamic err);
   external void complete();
-  external void subscribe(Observer<T> observer);
+  external Subscription<T> subscribe(Observer<T> observer);
 }

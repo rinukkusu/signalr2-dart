@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0-preview2-final
+
+- Catching up with the current release
+
 ## 1.0.0-alpha1-final
 
 - Initial version for the [announcement of the release][announcement]

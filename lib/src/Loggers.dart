@@ -4,14 +4,14 @@ library Loggers;
 import "package:js/js.dart";
 import "ILogger.dart" show ILogger;
 
-@JS()
+@JS("signalR.NullLogger")
 class NullLogger implements ILogger {
   // @Ignore
   NullLogger.fakeConstructor$();
   external void log(num /*enum LogLevel*/ logLevel, String message);
 }
 
-@JS()
+@JS("signalR.ConsoleLogger")
 class ConsoleLogger implements ILogger {
   // @Ignore
   ConsoleLogger.fakeConstructor$();
@@ -21,7 +21,10 @@ class ConsoleLogger implements ILogger {
   external void log(num /*enum LogLevel*/ logLevel, String message);
 }
 
-// Module LoggerFactory
-@JS("LoggerFactory.createLogger")
-external ILogger createLogger([dynamic /*ILogger|enum LogLevel*/ logging]);
-// End module LoggerFactory
+@JS("signalR.LoggerFactory")
+class LoggerFactory {
+  // @Ignore
+  LoggerFactory.fakeConstructor$();
+  external static ILogger createLogger(
+      [dynamic /*ILogger|enum LogLevel*/ logging]);
+}

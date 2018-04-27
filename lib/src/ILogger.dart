@@ -3,7 +3,7 @@ library ILogger;
 
 import "package:js/js.dart";
 
-@JS()
+@JS("signalR.LogLevel")
 class LogLevel {
   external static num get Trace;
   external static num get Information;
@@ -13,7 +13,7 @@ class LogLevel {
 }
 
 @anonymous
-@JS()
+@JS("signalR.ILogger")
 abstract class ILogger {
   external void log(num /*enum LogLevel*/ logLevel, String message);
 }

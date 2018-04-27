@@ -3,21 +3,35 @@ library HubConnection;
 
 import 'dart:async';
 import "package:js/js.dart";
-import "HttpConnection.dart" show HttpConnection;
 import "JsonHubProtocol.dart" show JsonHubProtocol;
+import "HttpConnection.dart" show IHttpConnectionOptions;
+import "IHubProtocol.dart" show IHubProtocol;
+import "HttpClient.dart" show HttpClient;
+import "Transports.dart" show ITransport;
 import "ILogger.dart" show ILogger;
-import "Loggers.dart" show ConsoleLogger, NullLogger;
+import "package:func/func.dart";
 import "IConnection.dart" show IConnection;
-import "IHubConnectionOptions.dart" show IHubConnectionOptions;
 import "Observable.dart" show Observable;
 import "Common.dart" show ConnectionClosed;
-export "Transports.dart" /*enum TransportType*/;
-export "HttpConnection.dart" show HttpConnection;
 export "JsonHubProtocol.dart" show JsonHubProtocol;
-export "ILogger.dart" show /*enum LogLevel*/ ILogger;
-export "Loggers.dart" show ConsoleLogger, NullLogger;
 
-@JS()
+@anonymous
+@JS("signalR.IHubConnectionOptions")
+abstract class IHubConnectionOptions implements IHttpConnectionOptions {
+  external IHubProtocol get protocol;
+  external set protocol(IHubProtocol v);
+  external num get timeoutInMilliseconds;
+  external set timeoutInMilliseconds(num v);
+  external factory IHubConnectionOptions(
+      {IHubProtocol protocol,
+      num timeoutInMilliseconds,
+      HttpClient httpClient,
+      dynamic /*enum TransportType|ITransport*/ transport,
+      dynamic /*ILogger|enum LogLevel*/ logger,
+      Func0<String> accessTokenFactory});
+}
+
+@JS("signalR.HubConnection")
 class HubConnection {
   // @Ignore
   HubConnection.fakeConstructor$();
@@ -33,15 +47,26 @@ class HubConnection {
   external set methods(v);
   external get id;
   external set id(v);
-  external get connectionClosedCallback;
-  external set connectionClosedCallback(v);
-  external factory HubConnection(dynamic /*String|IConnection*/ urlOrConnection,
+  external get closedCallbacks;
+  external set closedCallbacks(v);
+  external get timeoutHandle;
+  external set timeoutHandle(v);
+  external get timeoutInMilliseconds;
+  external set timeoutInMilliseconds(v);
+  external get receivedHandshakeResponse;
+  external set receivedHandshakeResponse(v);
+  /*external factory HubConnection(String url, [IHubConnectionOptions options]);*/
+  /*external factory HubConnection(IConnection connection, [IHubConnectionOptions options]);*/
+  external factory HubConnection(dynamic /*String|IConnection*/ url_connection,
       [IHubConnectionOptions options]);
-  external onDataReceived(data);
+  external processIncomingData(data);
+  external processHandshakeResponse(data);
+  external configureTimeout();
+  external serverTimeout();
   external invokeClientMethod(invocationMessage);
-  external onConnectionClosed(error);
+  external connectionClosed([error]);
   external Future<Null> start();
-  external void stop();
+  external Future<Null> stop();
   external Observable<dynamic/*=T*/ > stream/*<T>*/(String methodName,
       [dynamic args1,
       dynamic args2,
@@ -61,8 +86,12 @@ class HubConnection {
       dynamic args4,
       dynamic args5]);
   external void on(
-      String methodName, Function /*(...args: any[]) => void*/ method);
-  external ConnectionClosed get onClosed;
-  external set onClosed(ConnectionClosed v);
+      String methodName, Function /*(...args: any[]) => void*/ newMethod);
+  external void off(String methodName,
+      [Function /*(...args: any[]) => void*/ method]);
+  external void onclose(ConnectionClosed callback);
+  external cleanupTimeout();
   external createInvocation(methodName, args, nonblocking);
+  external createStreamInvocation(methodName, args);
+  external createCancelInvocation(id);
 }
