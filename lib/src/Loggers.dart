@@ -4,27 +4,20 @@ library Loggers;
 import "package:js/js.dart";
 import "ILogger.dart" show ILogger;
 
+/// Copyright (c) .NET Foundation. All rights reserved.
+/// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+/// A logger that does nothing when log messages are sent to it.
 @JS("signalR.NullLogger")
 class NullLogger implements ILogger {
   // @Ignore
   NullLogger.fakeConstructor$();
-  external void log(num /*enum LogLevel*/ logLevel, String message);
-}
 
-@JS("signalR.ConsoleLogger")
-class ConsoleLogger implements ILogger {
-  // @Ignore
-  ConsoleLogger.fakeConstructor$();
-  external get minimumLogLevel;
-  external set minimumLogLevel(v);
-  external factory ConsoleLogger(num /*enum LogLevel*/ minimumLogLevel);
-  external void log(num /*enum LogLevel*/ logLevel, String message);
-}
+  /// The singleton instance of the [NullLogger].
+  external static ILogger get instance;
+  external static set instance(ILogger v);
+  external factory NullLogger();
 
-@JS("signalR.LoggerFactory")
-class LoggerFactory {
-  // @Ignore
-  LoggerFactory.fakeConstructor$();
-  external static ILogger createLogger(
-      [dynamic /*ILogger|enum LogLevel*/ logging]);
+  /// @inheritDoc
+  external void log(num /*enum LogLevel*/ logLevel, String message);
 }
