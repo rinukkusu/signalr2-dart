@@ -1,6 +1,6 @@
 name: "signalr2"
-version: 1.0.0-preview2-final
-description: "Incredibly simple real-time web for ASP.NET Core 2.0"
+version: 1.0.0
+description: "Incredibly simple real-time web for ASP.NET Core 2.1"
 
 homepage: https://github.com/rinukkusu/signalr2-dart
 author: 'rinukkusu <rinukkusu@auen.land>'

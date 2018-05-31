@@ -5,7 +5,7 @@ import "package:js/js.dart";
 
 /// Error thrown when an HTTP request fails.
 @JS()
-class HttpError extends Error {
+class HttpError {
   // @Ignore
   HttpError.fakeConstructor$();
   external get JS$___proto__;
@@ -21,7 +21,7 @@ class HttpError extends Error {
 
 /// Error thrown when a timeout elapses.
 @JS()
-class TimeoutError extends Error {
+class TimeoutError {
   // @Ignore
   TimeoutError.fakeConstructor$();
   external get JS$___proto__;

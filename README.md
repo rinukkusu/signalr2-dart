@@ -1,10 +1,10 @@
 # signalr2
 
-Incredibly simple real-time web for ASP.NET Core 2.0
+Incredibly simple real-time web for ASP.NET Core 2.1
 This is an interop library for the [@aspnet/signalr_client][signalr_npm] package.
 Find more Information at https://github.com/aspnet/SignalR
 
-*Currently in sync with the release `1.0.0-preview2-final` from 2018-04-10.*
+*Currently in sync with the release `1.0.0` from 2018-05-29.*
 
 ## Usage
 
@@ -22,7 +22,10 @@ import 'dart:js';
 import 'package:signalr2/signalr2.dart' as signalr;
 
 Future<Null> main() async {
-  var connection = new signalr.HubConnection('/test');
+  var connection = new signalr.HubConnectionBuilder()
+      .withUrl('/chat')
+      .configureLogging(signalr.LogLevel.Information)
+      .build();
 
   connection.on('send', allowInterop((data) {
     print(data);
@@ -31,7 +34,7 @@ Future<Null> main() async {
   await connection.start();
 
   new Timer.periodic(const Duration(seconds: 1), (r) {
-    connection.send("send", "Hi");
+    connection.send('send', 'Hi');
   });
 }
 
