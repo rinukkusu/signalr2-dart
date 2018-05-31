@@ -3,7 +3,10 @@ import 'dart:js';
 import 'package:signalr2/signalr2.dart' as signalr;
 
 Future<Null> main() async {
-  var connection = new signalr.HubConnection('/test');
+  var connection = new signalr.HubConnectionBuilder()
+      .withUrl('/chat')
+      .configureLogging(signalr.LogLevel.Information)
+      .build();
 
   connection.on('send', allowInterop((data) {
     print(data);
@@ -12,6 +15,6 @@ Future<Null> main() async {
   await connection.start();
 
   new Timer.periodic(const Duration(seconds: 1), (r) {
-    connection.send("send", "Hi");
+    connection.send('send', 'Hi');
   });
 }
