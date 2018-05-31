@@ -113,5 +113,5 @@ class DefaultHttpClient extends HttpClient {
   external factory DefaultHttpClient(ILogger logger);
 
   /// @inheritDoc
-  external Promise<HttpResponse> send(HttpRequest request);
+  external Future<HttpResponse> send(HttpRequest request);
 }

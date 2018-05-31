@@ -10,6 +10,8 @@ import "HubConnection.dart" show HubConnection;
 /// A builder for configuring [HubConnection] instances.
 @JS()
 class HubConnectionBuilder {
+  external HubConnectionBuilder();
+
   /// Configures console logging for the [HubConnection].
   /*external HubConnectionBuilder configureLogging(enum LogLevel logLevel);*/
   /// Configures custom logging for the [HubConnection].
