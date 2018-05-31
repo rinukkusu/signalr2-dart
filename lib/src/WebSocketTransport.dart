@@ -6,23 +6,20 @@ import "package:js/js.dart";
 import "ITransport.dart" show ITransport;
 import "ILogger.dart" show ILogger;
 import "package:func/func.dart";
-import "dart:html" show WebSocket;
 import "dart:typed_data" show ByteBuffer;
 
-/// Copyright (c) .NET Foundation. All rights reserved.
-/// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-@JS("signalR.WebSocketTransport")
+@JS()
 class WebSocketTransport implements ITransport {
   // @Ignore
   WebSocketTransport.fakeConstructor$();
-  external ILogger get logger;
-  external set logger(ILogger v);
-  external Func0<dynamic /*String|Promise<String>*/ > get accessTokenFactory;
-  external set accessTokenFactory(Func0<dynamic /*String|Promise<String>*/ > v);
-  external bool get logMessageContent;
-  external set logMessageContent(bool v);
-  external WebSocket get webSocket;
-  external set webSocket(WebSocket v);
+  external get logger;
+  external set logger(v);
+  external get accessTokenFactory;
+  external set accessTokenFactory(v);
+  external get logMessageContent;
+  external set logMessageContent(v);
+  external get webSocket;
+  external set webSocket(v);
   external factory WebSocketTransport(
       dynamic /*String|Promise<String>*/ accessTokenFactory(),
       ILogger logger,

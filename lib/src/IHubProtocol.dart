@@ -1,15 +1,12 @@
-@JS()
+@JS("signalR")
 library IHubProtocol;
 
 import "package:js/js.dart";
 import "dart:typed_data" show ByteBuffer;
 import "ILogger.dart" show ILogger;
 
-/// Copyright (c) .NET Foundation. All rights reserved.
-/// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-
 /// Defines the type of a Hub Message.
-@JS("signalR.MessageType")
+@JS()
 class MessageType {
   external static num get
 
@@ -43,25 +40,17 @@ class MessageType {
 
 /// Defines a dictionary of string keys and string values representing headers attached to a Hub message.
 @anonymous
-@JS("signalR.MessageHeaders")
+@JS()
 abstract class MessageHeaders {
   /// Gets or sets the header with the specified key.
   /* Index signature is not yet supported by JavaScript interop. */
 }
 
 /// Union type of all known Hub messages.
-/*export type HubMessage =
-    InvocationMessage |
-    StreamInvocationMessage |
-    StreamItemMessage |
-    CompletionMessage |
-    CancelInvocationMessage |
-    PingMessage |
-    CloseMessage;*/
-
+/*export declare type HubMessage = InvocationMessage | StreamInvocationMessage | StreamItemMessage | CompletionMessage | CancelInvocationMessage | PingMessage | CloseMessage;*/
 /// Defines properties common to all Hub messages.
 @anonymous
-@JS("signalR.HubMessageBase")
+@JS()
 abstract class HubMessageBase {
   /// A [MessageType] value indicating the type of this message.
   external num /*enum MessageType*/ get type;
@@ -71,7 +60,7 @@ abstract class HubMessageBase {
 
 /// Defines properties common to all Hub messages relating to a specific invocation.
 @anonymous
-@JS("signalR.HubInvocationMessage")
+@JS()
 abstract class HubInvocationMessage implements HubMessageBase {
   /// A [MessageHeaders] dictionary containing headers attached to the message.
   external MessageHeaders get headers;
@@ -90,7 +79,7 @@ abstract class HubInvocationMessage implements HubMessageBase {
 
 /// A hub message representing a non-streaming invocation.
 @anonymous
-@JS("signalR.InvocationMessage")
+@JS()
 abstract class InvocationMessage implements HubInvocationMessage {
   external get type;
   external set type(v);
@@ -112,7 +101,7 @@ abstract class InvocationMessage implements HubInvocationMessage {
 
 /// A hub message representing a streaming invocation.
 @anonymous
-@JS("signalR.StreamInvocationMessage")
+@JS()
 abstract class StreamInvocationMessage implements HubInvocationMessage {
   /// @inheritDoc
   external get type;
@@ -139,7 +128,7 @@ abstract class StreamInvocationMessage implements HubInvocationMessage {
 
 /// A hub message representing a single item produced as part of a result stream.
 @anonymous
-@JS("signalR.StreamItemMessage")
+@JS()
 abstract class StreamItemMessage implements HubInvocationMessage {
   /// @inheritDoc
   external get type;
@@ -161,7 +150,7 @@ abstract class StreamItemMessage implements HubInvocationMessage {
 
 /// A hub message representing the result of an invocation.
 @anonymous
-@JS("signalR.CompletionMessage")
+@JS()
 abstract class CompletionMessage implements HubInvocationMessage {
   /// @inheritDoc
   external get type;
@@ -190,7 +179,7 @@ abstract class CompletionMessage implements HubInvocationMessage {
 
 /// A hub message indicating that the sender is still active.
 @anonymous
-@JS("signalR.PingMessage")
+@JS()
 abstract class PingMessage implements HubMessageBase {
   /// @inheritDoc
   external get type;
@@ -201,7 +190,7 @@ abstract class PingMessage implements HubMessageBase {
 /// A hub message indicating that the sender is closing the connection.
 /// If [error] is defined, the sender is closing the connection due to an error.
 @anonymous
-@JS("signalR.CloseMessage")
+@JS()
 abstract class CloseMessage implements HubMessageBase {
   /// @inheritDoc
   external get type;
@@ -216,7 +205,7 @@ abstract class CloseMessage implements HubMessageBase {
 
 /// A hub message sent to request that a streaming invocation be canceled.
 @anonymous
-@JS("signalR.CancelInvocationMessage")
+@JS()
 abstract class CancelInvocationMessage implements HubInvocationMessage {
   /// @inheritDoc
   external get type;
@@ -233,7 +222,7 @@ abstract class CancelInvocationMessage implements HubInvocationMessage {
 
 /// A protocol abstraction for communicating with SignalR Hubs.
 @anonymous
-@JS("signalR.IHubProtocol")
+@JS()
 abstract class IHubProtocol {
   /// The name of the protocol. This is used by SignalR to resolve the protocol between the client and server.
   external String get name;

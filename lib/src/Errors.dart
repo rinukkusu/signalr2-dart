@@ -1,10 +1,10 @@
-@JS()
+@JS("signalR")
 library Errors;
 
 import "package:js/js.dart";
 
 /// Error thrown when an HTTP request fails.
-@JS("signalR.HttpError")
+@JS()
 class HttpError extends Error {
   // @Ignore
   HttpError.fakeConstructor$();
@@ -20,14 +20,12 @@ class HttpError extends Error {
 }
 
 /// Error thrown when a timeout elapses.
-@JS("signalR.TimeoutError")
+@JS()
 class TimeoutError extends Error {
   // @Ignore
   TimeoutError.fakeConstructor$();
-
-  /// tslint:disable-next-line:variable-name
-  external Error get JS$___proto__;
-  external set JS$___proto__(Error v);
+  external get JS$___proto__;
+  external set JS$___proto__(v);
 
   /// Constructs a new instance of [TimeoutError].
   external factory TimeoutError([String errorMessage]);

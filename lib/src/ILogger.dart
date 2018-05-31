@@ -1,15 +1,11 @@
-@JS()
+@JS("signalR")
 library ILogger;
 
 import "package:js/js.dart";
 
-/// Copyright (c) .NET Foundation. All rights reserved.
-/// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-
-/// These values are designed to match the ASP.NET Log Levels since that's the pattern we're emulating here.
 /// Indicates the severity of a log message.
 /// Log Levels are ordered in increasing severity. So `Debug` is more severe than `Trace`, etc.
-@JS("signalR.LogLevel")
+@JS()
 class LogLevel {
   external static num get
 
@@ -43,7 +39,7 @@ class LogLevel {
 
 /// An abstraction that provides a sink for diagnostic messages.
 @anonymous
-@JS("signalR.ILogger")
+@JS()
 abstract class ILogger {
   /// Called by the framework to emit a diagnostic message.
   external void log(num /*enum LogLevel*/ logLevel, String message);

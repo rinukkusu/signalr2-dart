@@ -1,4 +1,4 @@
-@JS()
+@JS("signalR")
 library ITransport;
 
 import 'dart:async';
@@ -6,12 +6,8 @@ import "package:js/js.dart";
 import "package:func/func.dart";
 import "dart:typed_data" show ByteBuffer;
 
-/// Copyright (c) .NET Foundation. All rights reserved.
-/// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-
-/// This will be treated as a bit flag in the future, so we keep it using power-of-two values.
 /// Specifies a specific HTTP transport type.
-@JS("signalR.HttpTransportType")
+@JS()
 class HttpTransportType {
   external static num get
 
@@ -32,7 +28,7 @@ class HttpTransportType {
 }
 
 /// Specifies the transfer format for a connection.
-@JS("signalR.TransferFormat")
+@JS()
 class TransferFormat {
   external static num get
 
@@ -46,7 +42,7 @@ class TransferFormat {
 
 /// An abstraction over the behavior of transports. This is designed to support the framework and not intended for use by applications.
 @anonymous
-@JS("signalR.ITransport")
+@JS()
 abstract class ITransport {
   external Future<Null> connect(
       String url, num /*enum TransferFormat*/ transferFormat);

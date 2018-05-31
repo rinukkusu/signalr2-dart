@@ -1,4 +1,4 @@
-@JS()
+@JS("signalR")
 library HttpClient;
 
 import 'dart:async';
@@ -7,12 +7,9 @@ import "dart:typed_data" show ByteBuffer;
 import "AbortController.dart" show AbortSignal;
 import "ILogger.dart" show ILogger;
 
-/// Copyright (c) .NET Foundation. All rights reserved.
-/// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-
 /// Represents an HTTP request.
 @anonymous
-@JS("signalR.HttpRequest")
+@JS()
 abstract class HttpRequest {
   /// The HTTP method to use for the request.
   external String get method;
@@ -52,7 +49,7 @@ abstract class HttpRequest {
 }
 
 /// Represents an HTTP response.
-@JS("signalR.HttpResponse")
+@JS()
 class HttpResponse {
   // @Ignore
   HttpResponse.fakeConstructor$();
@@ -71,14 +68,13 @@ class HttpResponse {
   /*external factory HttpResponse(num statusCode, String statusText, String content);*/
   /// Constructs a new instance of [HttpResponse] with the specified status code, message and binary content.
   /*external factory HttpResponse(num statusCode, String statusText, ByteBuffer content);*/
-  /*external factory HttpResponse(num statusCode, [String statusText, String|ByteBuffer content]);*/
   external factory HttpResponse(num statusCode,
       [String statusText, dynamic /*String|ByteBuffer*/ content]);
 }
 
 /// Abstraction over an HTTP client.
 /// This class provides an abstraction over an HTTP client so that a different implementation can be provided on different platforms.
-@JS("signalR.HttpClient")
+@JS()
 abstract class HttpClient {
   // @Ignore
   HttpClient.fakeConstructor$();
@@ -87,21 +83,35 @@ abstract class HttpClient {
   /*external Promise<HttpResponse> JS$get(String url);*/
   /// Issues an HTTP GET request to the specified URL, returning a Promise that resolves with an [HttpResponse] representing the result.
   /*external Promise<HttpResponse> JS$get(String url, HttpRequest options);*/
-  /*external Promise<HttpResponse> JS$get(String url, [HttpRequest options]);*/
   external Future<HttpResponse> JS$get(String url, [HttpRequest options]);
+
+  /// Issues an HTTP POST request to the specified URL, returning a Promise that resolves with an [HttpResponse] representing the result.
+  /*external Promise<HttpResponse> post(String url);*/
+  /// Issues an HTTP POST request to the specified URL, returning a Promise that resolves with an [HttpResponse] representing the result.
+  /*external Promise<HttpResponse> post(String url, HttpRequest options);*/
+  external Future<HttpResponse> post(String url, [HttpRequest options]);
+
+  /// Issues an HTTP DELETE request to the specified URL, returning a Promise that resolves with an [HttpResponse] representing the result.
+  /*external Promise<HttpResponse> delete(String url);*/
+  /// Issues an HTTP DELETE request to the specified URL, returning a Promise that resolves with an [HttpResponse] representing the result.
+  /*external Promise<HttpResponse> delete(String url, HttpRequest options);*/
+  external Future<HttpResponse> delete(String url, [HttpRequest options]);
+
+  /// Issues an HTTP request to the specified URL, returning a [Promise] that resolves with an [HttpResponse] representing the result.
+  external Future<HttpResponse> send(HttpRequest request);
 }
 
 /// Default implementation of [HttpClient].
-@JS("signalR.DefaultHttpClient")
+@JS()
 class DefaultHttpClient extends HttpClient {
   // @Ignore
   DefaultHttpClient.fakeConstructor$() : super.fakeConstructor$();
-  external ILogger get logger;
-  external set logger(ILogger v);
+  external get logger;
+  external set logger(v);
 
   /// Creates a new instance of the [DefaultHttpClient], using the provided [ILogger] to log messages.
   external factory DefaultHttpClient(ILogger logger);
 
   /// @inheritDoc
-  external Future<HttpResponse> send(HttpRequest request);
+  external Promise<HttpResponse> send(HttpRequest request);
 }

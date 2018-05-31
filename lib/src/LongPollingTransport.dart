@@ -4,47 +4,39 @@ library LongPollingTransport;
 import 'dart:async';
 import "package:js/js.dart";
 import "ITransport.dart" show ITransport;
-import "HttpClient.dart" show HttpClient, HttpRequest;
-import "package:func/func.dart";
+import "HttpClient.dart" show HttpClient;
 import "ILogger.dart" show ILogger;
-import "AbortController.dart" show AbortController;
+import "package:func/func.dart";
 import "dart:typed_data" show ByteBuffer;
 
-/// Copyright (c) .NET Foundation. All rights reserved.
-/// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-@JS("signalR.SHUTDOWN_TIMEOUT")
-external get SHUTDOWN_TIMEOUT;
-
-/// Not exported from 'index', this type is internal.
-@JS("signalR.LongPollingTransport")
+@JS()
 class LongPollingTransport implements ITransport {
   // @Ignore
   LongPollingTransport.fakeConstructor$();
-  external HttpClient get httpClient;
-  external set httpClient(HttpClient v);
-  external Func0<dynamic /*String|Promise<String>*/ > get accessTokenFactory;
-  external set accessTokenFactory(Func0<dynamic /*String|Promise<String>*/ > v);
-  external ILogger get logger;
-  external set logger(ILogger v);
-  external bool get logMessageContent;
-  external set logMessageContent(bool v);
-  external String get url;
-  external set url(String v);
-  external HttpRequest get pollXhr;
-  external set pollXhr(HttpRequest v);
-  external AbortController get pollAbort;
-  external set pollAbort(AbortController v);
-  external dynamic get shutdownTimer;
-  external set shutdownTimer(dynamic v);
-  external num get shutdownTimeout;
-  external set shutdownTimeout(num v);
-  external bool get running;
-  external set running(bool v);
-  external bool get stopped;
-  external set stopped(bool v);
-
-  /// This is an internal type, not exported from 'index' so this is really just internal.
-  external get pollAborted;
+  external get httpClient;
+  external set httpClient(v);
+  external get accessTokenFactory;
+  external set accessTokenFactory(v);
+  external get logger;
+  external set logger(v);
+  external get logMessageContent;
+  external set logMessageContent(v);
+  external get url;
+  external set url(v);
+  external get pollXhr;
+  external set pollXhr(v);
+  external get pollAbort;
+  external set pollAbort(v);
+  external get shutdownTimer;
+  external set shutdownTimer(v);
+  external get shutdownTimeout;
+  external set shutdownTimeout(v);
+  external get running;
+  external set running(v);
+  external get stopped;
+  external set stopped(v);
+  external bool get pollAborted;
+  external set pollAborted(bool v);
   external factory LongPollingTransport(
       HttpClient httpClient,
       dynamic /*String|Promise<String>*/ accessTokenFactory(),
@@ -53,9 +45,8 @@ class LongPollingTransport implements ITransport {
       [num shutdownTimeout]);
   external Future<Null> connect(
       String url, num /*enum TransferFormat*/ transferFormat);
-  external updateHeaderToken(HttpRequest request, String token);
-  external Future<Null> poll(
-      String url, HttpRequest pollOptions, Error closeError);
+  external updateHeaderToken(request, token);
+  external poll(url, pollOptions, closeError);
   external Future<Null> send(dynamic data);
   external Future<Null> stop();
   external VoidFunc1<dynamic /*String|ByteBuffer*/ > get onreceive;

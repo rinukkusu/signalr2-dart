@@ -9,9 +9,7 @@ import "HttpClient.dart" show HttpClient;
 import "Stream.dart" show IStreamResult, IStreamSubscriber, ISubscription;
 import "package:func/func.dart";
 
-/// Copyright (c) .NET Foundation. All rights reserved.
-/// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-@JS("signalR.Arg")
+@JS()
 class Arg {
   // @Ignore
   Arg.fakeConstructor$();
@@ -19,11 +17,11 @@ class Arg {
   external static void isIn(dynamic val, dynamic values, String name);
 }
 
-@JS("signalR.getDataDetail")
+@JS()
 external String getDataDetail(dynamic data, bool includeContent);
-@JS("signalR.formatArrayBuffer")
+@JS()
 external String formatArrayBuffer(ByteBuffer data);
-@JS("signalR.sendMessage")
+@JS()
 external Future<Null> sendMessage(
     ILogger logger,
     String transportName,
@@ -33,9 +31,9 @@ external Future<Null> sendMessage(
     dynamic /*String|ByteBuffer*/ content,
     bool logMessageContent);
 @JS()
-external createLogger([dynamic /*ILogger|enum LogLevel*/ logger]);
+external ILogger createLogger([dynamic /*ILogger|enum LogLevel*/ logger]);
 
-@JS("signalR.Subject")
+@JS()
 class Subject<T> implements IStreamResult<T> {
   // @Ignore
   Subject.fakeConstructor$();
@@ -50,25 +48,25 @@ class Subject<T> implements IStreamResult<T> {
   external ISubscription<T> subscribe(IStreamSubscriber<T> observer);
 }
 
-@JS("signalR.SubjectSubscription")
+@JS()
 class SubjectSubscription<T> implements ISubscription<T> {
   // @Ignore
   SubjectSubscription.fakeConstructor$();
-  external Subject<T> get subject;
-  external set subject(Subject<T> v);
-  external IStreamSubscriber<T> get observer;
-  external set observer(IStreamSubscriber<T> v);
+  external get subject;
+  external set subject(v);
+  external get observer;
+  external set observer(v);
   external factory SubjectSubscription(
       Subject<T> subject, IStreamSubscriber<T> observer);
   external void dispose();
 }
 
-@JS("signalR.ConsoleLogger")
+@JS()
 class ConsoleLogger implements ILogger {
   // @Ignore
   ConsoleLogger.fakeConstructor$();
-  external num /*enum LogLevel*/ get minimumLogLevel;
-  external set minimumLogLevel(num /*enum LogLevel*/ v);
+  external get minimumLogLevel;
+  external set minimumLogLevel(v);
   external factory ConsoleLogger(num /*enum LogLevel*/ minimumLogLevel);
   external void log(num /*enum LogLevel*/ logLevel, String message);
 }

@@ -3,10 +3,8 @@ library HandshakeProtocol;
 
 import "package:js/js.dart";
 
-/// Copyright (c) .NET Foundation. All rights reserved.
-/// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 @anonymous
-@JS("signalR.HandshakeRequestMessage")
+@JS()
 abstract class HandshakeRequestMessage {
   external String get protocol;
   external set protocol(String v);
@@ -16,19 +14,17 @@ abstract class HandshakeRequestMessage {
 }
 
 @anonymous
-@JS("signalR.HandshakeResponseMessage")
+@JS()
 abstract class HandshakeResponseMessage {
   external String get error;
   external set error(String v);
   external factory HandshakeResponseMessage({String error});
 }
 
-@JS("signalR.HandshakeProtocol")
+@JS()
 class HandshakeProtocol {
   // @Ignore
   HandshakeProtocol.fakeConstructor$();
-
-  /// Handshake request is always JSON
   external String writeHandshakeRequest(
       HandshakeRequestMessage handshakeRequest);
   external List<dynamic /*dynamic|HandshakeResponseMessage*/ > /*Tuple of <dynamic,HandshakeResponseMessage>*/ parseHandshakeResponse(

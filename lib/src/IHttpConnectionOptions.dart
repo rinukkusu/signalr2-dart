@@ -1,4 +1,4 @@
-@JS()
+@JS("signalR")
 library IHttpConnectionOptions;
 
 import "package:js/js.dart";
@@ -6,12 +6,9 @@ import "HttpClient.dart" show HttpClient;
 import "ITransport.dart" show ITransport;
 import "ILogger.dart" show ILogger;
 
-/// Copyright (c) .NET Foundation. All rights reserved.
-/// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-
 /// Options provided to the 'withUrl' method on [HubConnectionBuilder] to configure options for the HTTP-based transports.
 @anonymous
-@JS("signalR.IHttpConnectionOptions")
+@JS()
 abstract class IHttpConnectionOptions {
   /// An [HttpClient] that will be used to make HTTP requests.
   external HttpClient get httpClient;
