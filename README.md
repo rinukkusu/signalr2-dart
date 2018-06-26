@@ -1,7 +1,7 @@
 # signalr2
 
 Incredibly simple real-time web for ASP.NET Core 2.1
-This is an interop library for the [@aspnet/signalr_client][signalr_npm] package.
+This is an interop library for the [@aspnet/signalr][signalr_npm] package.
 Find more Information at https://github.com/aspnet/SignalR
 
 *Currently in sync with the release `1.0.0` from 2018-05-29.*
@@ -45,4 +45,4 @@ Future<Null> main() async {
 Please file feature requests and bugs at the [issue tracker][tracker].
 
 [tracker]: https://github.com/rinukkusu/signalr2-dart
-[signalr_npm]: https://www.npmjs.com/package/@aspnet/signalr-client
+[signalr_npm]: https://www.npmjs.com/package/@aspnet/signalr
