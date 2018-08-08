@@ -5,18 +5,15 @@ version: 0.0.1
 #author: Maximilian Riegler <email@example.com>
 
 environment:
-  sdk: '>=1.20.1 <2.0.0'
+  sdk: '>=2.0.0 <3.0.0'
 
 dependencies:
   signalr2: 
     path: ../../
 
 dev_dependencies:
-  browser: ^0.10.0
-  dart_to_js_script_rewriter: ^1.0.1
-
-transformers:
-- dart_to_js_script_rewriter
+  build_runner: '>=0.8.10 <0.11.0'
+  build_web_compilers: '>=0.3.6 <0.5.0'
 
 # Uncomment the following in sdk 1.24+ to make pub serve
 # use dartdevc (webdev.dartlang.org/tools/dartdevc).
