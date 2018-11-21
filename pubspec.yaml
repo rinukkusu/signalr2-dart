@@ -1,5 +1,5 @@
 name: signalr2
-version: 1.0.3
+version: 1.0.3+2
 description: A dart wrapper around the official SignalR JavaScript library for ASP.NET Core 2.1
 
 homepage: https://github.com/rinukkusu/signalr2-dart
@@ -7,10 +7,7 @@ author: 'rinukkusu <rinukkusu@auen.land>'
 
 dependencies: 
   js: ^0.6.1+1
-  func: 
-    git: 
-      url: https://github.com/rinukkusu/func
-    version: 1.0.0+1
+  func2: ^2.0.0
 
 dev_dependencies: 
 

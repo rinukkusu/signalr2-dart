@@ -2,7 +2,7 @@
 library AbortController;
 
 import "package:js/js.dart";
-import "package:func/func.dart";
+import "package:func2/func.dart";
 
 @JS()
 class AbortController implements AbortSignal {

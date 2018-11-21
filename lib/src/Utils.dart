@@ -7,7 +7,7 @@ import "dart:typed_data" show ByteBuffer;
 import "ILogger.dart" show ILogger;
 import "HttpClient.dart" show HttpClient;
 import "Stream.dart" show IStreamResult, IStreamSubscriber, ISubscription;
-import "package:func/func.dart";
+import "package:func2/func.dart";
 
 @JS()
 class Arg {

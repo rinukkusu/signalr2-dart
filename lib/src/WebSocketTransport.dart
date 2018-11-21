@@ -5,7 +5,7 @@ import 'dart:async';
 import "package:js/js.dart";
 import "ITransport.dart" show ITransport;
 import "ILogger.dart" show ILogger;
-import "package:func/func.dart";
+import "package:func2/func.dart";
 
 @JS()
 class WebSocketTransport implements ITransport {

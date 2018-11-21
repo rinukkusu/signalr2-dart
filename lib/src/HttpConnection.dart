@@ -4,7 +4,7 @@ library HttpConnection;
 import 'dart:async';
 import "package:js/js.dart";
 import "IConnection.dart" show IConnection;
-import "package:func/func.dart";
+import "package:func2/func.dart";
 import "IHttpConnectionOptions.dart" show IHttpConnectionOptions;
 
 @anonymous
@@ -67,17 +67,26 @@ class HttpConnection implements IConnection {
   external Future<Null> start([num /*enum TransferFormat*/ transferFormat]);
   external Future<Null> send(dynamic /*String|ByteBuffer*/ data);
   external Future<Null> stop([Error error]);
-  external startInternal(transferFormat);
-  external getNegotiationResponse(url);
-  external createConnectUrl(url, connectionId);
-  external createTransport(
-      url, requestedTransport, negotiateResponse, requestedTransferFormat);
-  external constructTransport(transport);
-  external resolveTransport(
-      endpoint, requestedTransport, requestedTransferFormat);
-  external isITransport(transport);
-  external changeState(from, to);
-  external stopConnection([error]);
-  external resolveUrl(url);
-  external resolveNegotiateUrl(url);
+  external get startInternal;
+  external set startInternal(v);
+  external get getNegotiationResponse;
+  external set getNegotiationResponse(v);
+  external get createConnectUrl;
+  external set createConnectUrl(v);
+  external get createTransport;
+  external set createTransport(v);
+  external get constructTransport;
+  external set constructTransport(v);
+  external get resolveTransport;
+  external set resolveTransport(v);
+  external get isITransport;
+  external set isITransport(v);
+  external get changeState;
+  external set changeState(v);
+  external get stopConnection;
+  external set stopConnection(v);
+  external get resolveUrl;
+  external set resolveUrl(v);
+  external get resolveNegotiateUrl;
+  external set resolveNegotiateUrl(v);
 }

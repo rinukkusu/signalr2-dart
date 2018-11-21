@@ -31,8 +31,12 @@ class JsonHubProtocol implements IHubProtocol {
   /// Writes the specified [HubMessage] to a string and returns it.
   external String writeMessage(
       dynamic /*InvocationMessage|StreamInvocationMessage|StreamItemMessage|CompletionMessage|CancelInvocationMessage|PingMessage|CloseMessage*/ message);
-  external isInvocationMessage(message);
-  external isStreamItemMessage(message);
-  external isCompletionMessage(message);
-  external assertNotEmptyString(value, errorMessage);
+  external get isInvocationMessage;
+  external set isInvocationMessage(v);
+  external get isStreamItemMessage;
+  external set isStreamItemMessage(v);
+  external get isCompletionMessage;
+  external set isCompletionMessage(v);
+  external get assertNotEmptyString;
+  external set assertNotEmptyString(v);
 }

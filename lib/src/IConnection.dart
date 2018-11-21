@@ -3,7 +3,7 @@ library IConnection;
 
 import 'dart:async';
 import "package:js/js.dart";
-import "package:func/func.dart";
+import "package:func2/func.dart";
 
 @anonymous
 @JS()

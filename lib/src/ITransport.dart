@@ -3,7 +3,7 @@ library ITransport;
 
 import 'dart:async';
 import "package:js/js.dart";
-import "package:func/func.dart";
+import "package:func2/func.dart";
 
 /// Specifies a specific HTTP transport type.
 @JS()
