@@ -2,7 +2,6 @@
 library IHubProtocol;
 
 import "package:js/js.dart";
-import "dart:typed_data" show ByteBuffer;
 import "ILogger.dart" show ILogger;
 
 /// Defines the type of a Hub Message.
@@ -142,10 +141,7 @@ abstract class StreamItemMessage implements HubInvocationMessage {
   external dynamic get item;
   external set item(dynamic v);
   external factory StreamItemMessage(
-      {type,
-      String invocationId,
-      dynamic item,
-      MessageHeaders headers});
+      {type, String invocationId, dynamic item, MessageHeaders headers});
 }
 
 /// A hub message representing the result of an invocation.
@@ -215,9 +211,7 @@ abstract class CancelInvocationMessage implements HubInvocationMessage {
   external String get invocationId;
   external set invocationId(String v);
   external factory CancelInvocationMessage(
-      {type,
-      String invocationId,
-      MessageHeaders headers});
+      {type, String invocationId, MessageHeaders headers});
 }
 
 /// A protocol abstraction for communicating with SignalR Hubs.

@@ -4,7 +4,6 @@ library ITransport;
 import 'dart:async';
 import "package:js/js.dart";
 import "package:func/func.dart";
-import "dart:typed_data" show ByteBuffer;
 
 /// Specifies a specific HTTP transport type.
 @JS()

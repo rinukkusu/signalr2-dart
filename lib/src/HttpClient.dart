@@ -3,7 +3,6 @@ library HttpClient;
 
 import 'dart:async';
 import "package:js/js.dart";
-import "dart:typed_data" show ByteBuffer;
 import "AbortController.dart" show AbortSignal;
 import "ILogger.dart" show ILogger;
 

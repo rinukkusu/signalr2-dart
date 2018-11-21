@@ -7,7 +7,6 @@ import "ITransport.dart" show ITransport;
 import "HttpClient.dart" show HttpClient;
 import "ILogger.dart" show ILogger;
 import "package:func/func.dart";
-import "dart:typed_data" show ByteBuffer;
 
 @JS()
 class LongPollingTransport implements ITransport {

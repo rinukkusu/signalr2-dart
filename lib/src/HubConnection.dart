@@ -46,7 +46,7 @@ class HubConnection {
 
   /// Invokes a streaming hub method on the server using the specified name and arguments.
   /// @typeparam T The type of the items returned by the server.
-  external IStreamResult<dynamic/*=T*/ > stream/*<T, any>*/(String methodName,
+  external IStreamResult<dynamic> stream(String methodName,
       [dynamic args1,
       dynamic args2,
       dynamic args3,
@@ -68,7 +68,7 @@ class HubConnection {
   /// resolves, the server has finished invoking the method. If the server method returns a result, it is produced as the result of
   /// resolving the Promise.
   /// @typeparam T The expected return type.
-  external Future<dynamic/*=T*/ > invoke/*<T, any>*/(String methodName,
+  external Future<dynamic> invoke(String methodName,
       [dynamic args1,
       dynamic args2,
       dynamic args3,
@@ -76,8 +76,7 @@ class HubConnection {
       dynamic args5]);
 
   /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
-  external void on(
-      String methodName, Function /*(...args: any[]) => void*/ newMethod);
+  external void on(String methodName, Function newMethod);
 
   /// Removes all handlers for the specified hub method.
   /*external void off(String methodName);*/
@@ -85,8 +84,7 @@ class HubConnection {
   /// You must pass the exact same Function instance as was previously passed to [on]. Passing a different instance (even if the function
   /// body is the same) will not remove the handler.
   /*external void off(String methodName, (...args: any[]) => void method);*/
-  external void off(String methodName,
-      [Function /*(...args: any[]) => void*/ method]);
+  external void off(String methodName, [Function method]);
 
   /// Registers a handler that will be invoked when the connection is closed.
   external void onclose(void callback([Error error]));

@@ -5,7 +5,6 @@ import 'dart:async';
 import "package:js/js.dart";
 import "IConnection.dart" show IConnection;
 import "package:func/func.dart";
-import "dart:typed_data" show ByteBuffer;
 import "IHttpConnectionOptions.dart" show IHttpConnectionOptions;
 
 @anonymous

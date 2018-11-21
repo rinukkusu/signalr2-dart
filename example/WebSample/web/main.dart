@@ -4,7 +4,7 @@ import 'package:signalr2/signalr2.dart' as signalr;
 
 Future<Null> main() async {
   var connection = new signalr.HubConnectionBuilder()
-      .withUrl('/chat')
+      .withUrl('http://localhost:5000/chat')
       .configureLogging(signalr.LogLevel.Information)
       .build();
 

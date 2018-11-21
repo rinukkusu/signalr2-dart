@@ -6,7 +6,6 @@ import "package:js/js.dart";
 import "ITransport.dart" show ITransport;
 import "ILogger.dart" show ILogger;
 import "package:func/func.dart";
-import "dart:typed_data" show ByteBuffer;
 
 @JS()
 class WebSocketTransport implements ITransport {

@@ -3,7 +3,6 @@ library IHttpConnectionOptions;
 
 import "package:js/js.dart";
 import "HttpClient.dart" show HttpClient;
-import "ITransport.dart" show ITransport;
 import "ILogger.dart" show ILogger;
 
 /// Options provided to the 'withUrl' method on [HubConnectionBuilder] to configure options for the HTTP-based transports.

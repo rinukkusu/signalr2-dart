@@ -3,7 +3,6 @@ library IConnection;
 
 import 'dart:async';
 import "package:js/js.dart";
-import "dart:typed_data" show ByteBuffer;
 import "package:func/func.dart";
 
 @anonymous

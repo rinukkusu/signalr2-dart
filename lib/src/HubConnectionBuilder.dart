@@ -2,8 +2,6 @@
 library HubConnectionBuilder;
 
 import "package:js/js.dart";
-import "ILogger.dart" show ILogger;
-import "IHttpConnectionOptions.dart" show IHttpConnectionOptions;
 import "IHubProtocol.dart" show IHubProtocol;
 import "HubConnection.dart" show HubConnection;
 
@@ -16,8 +14,7 @@ class HubConnectionBuilder {
   /*external HubConnectionBuilder configureLogging(enum LogLevel logLevel);*/
   /// Configures custom logging for the [HubConnection].
   /*external HubConnectionBuilder configureLogging(ILogger logger);*/
-  external HubConnectionBuilder configureLogging(
-      dynamic /*enum LogLevel|ILogger*/ logLevel_logger);
+  external HubConnectionBuilder configureLogging(dynamic logLevel_logger);
 
   /// Configures the [HubConnection] to use HTTP-based transports to connect to the specified URL.
   /// The transport will be selected automatically based on what the server and client support.
@@ -28,7 +25,7 @@ class HubConnectionBuilder {
   /*external HubConnectionBuilder withUrl(
     String url, IHttpConnectionOptions options);*/
   external HubConnectionBuilder withUrl(String url,
-      [dynamic /*enum HttpTransportType|IHttpConnectionOptions*/ transportType_options]);
+      [dynamic transportType_options]);
 
   /// Configures the [HubConnection] to use the specified Hub Protocol.
   external HubConnectionBuilder withHubProtocol(IHubProtocol protocol);
