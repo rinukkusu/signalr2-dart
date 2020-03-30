@@ -1,3 +1,7 @@
+# Please use [soernt/signalr_client](https://github.com/soernt/signalr_client) for the best experience. This wrapper library is not in development anymore.
+
+
+
 # signalr2
 
 Incredibly simple real-time web for ASP.NET Core 2.1
